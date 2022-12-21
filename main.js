@@ -52,27 +52,27 @@ function wait(ms) {
 
 /*
 
-addEventListener("fetch", event=>{
-    event.respondWith(handleRequest(event.request))
+addEventListener("fetch", event=>{      //inizio processo su ricezione richiesta
+    event.respondWith(handleRequest(event.request)) //passa alla funzione la richiesta
 })
 
-async function handleRequest(request){
-    const url = new URL(request.url);
-    const requestUrl = request.url.replace(`${url.origin}/`, "");
-    let proxiedRequest = new Request(requestUrl, request);
-    if(proxiedRequest.headers.has("origin")){
-        proxiedRequest.headers.delete("origin")
+async function handleRequest(request){      
+    const url = new URL(request.url);   //ricevo l'URL
+    const requestUrl = request.url.replace(`${url.origin}/`, "");   //rimuovo il nostro link dalla richiesta
+    let proxiedRequest = new Request(requestUrl, request);  //si crea una nuova richiesta al link modificato
+    if(proxiedRequest.headers.has("origin")){       //cancella l'origine
+        proxiedRequest.headers.delete("origin")     
     }
 
-    if(proxiedRequest.headers.has("referer")){
+    if(proxiedRequest.headers.has("referer")){      //cancella il referer
         proxiedRequest.headers.delete("referer")
     }
     
-    let response = await fetch(proxiedRequest)
-    response = new Response(response.body, response)
-    response.headers.set("access-control-allow-origin", "circolo-universale-di-analisi-sofista.github.io")
-    response.headers.set("access-control-allow-headers", "*")
-    return response
+    let response = await fetch(proxiedRequest)      //eseguiamo la richiesta
+    response = new Response(response.body, response)        
+    response.headers.set("access-control-allow-origin", "circolo-universale-di-analisi-sofista.github.io") //creiamo un copia della risposta, con origine diversa
+    response.headers.set("access-control-allow-headers", "*") //rimuoviamo la richiesta di controllo sugli headers
+    return response //inviamo la risposta finale
 }
 
 */
