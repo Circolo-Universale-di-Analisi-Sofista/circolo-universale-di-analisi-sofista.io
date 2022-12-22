@@ -86,7 +86,7 @@ async function handleRequest(request){
     
     let response = await fetch(proxiedRequest)      //eseguiamo la richiesta
     response = new Response(response.body, response)        
-    response.headers.set("access-control-allow-origin", "circolo-universale-di-analisi-sofista.github.io") //creiamo un copia della risposta, con origine diversa
+    response.headers.set("access-control-allow-origin", "https://circolo-universale-di-analisi-sofista.github.io") //creiamo un copia della risposta, con origine diversa
     response.headers.set("access-control-allow-headers", "*") //rimuoviamo la richiesta di controllo sugli headers
     return response //inviamo la risposta finale
 }
