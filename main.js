@@ -28,26 +28,42 @@ const writer = GlitchedWriter.create(document.getElementById("glitch_this"), {
     letterize: true,
 })
 
+const writer2 = GlitchedWriter.create(document.getElementById("glitch_that"), {
+    interval: [20, 60],
+    letterize: true,
+})
+
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 (async  ()=> {
 
-    await writer.write("Corporates");
+    await writer.write("Homepage");
     
     await wait(1000);
-    await writer.write("Please don't sue us");
-    
-    await wait(1000);
-    await writer.write("This is just a proof of concept ;)");
+    await writer.write("Prova il nostro bypasser");
 
-    await wait(1200);
+    await wait(1600);
     await writer.write("S.U.C.A.");
     await writer.write("C.U.A.S.");
-
     await wait(700);
     await writer.write("Club Universale di Analisi Sofista");
+  })();
+
+  (async  ()=> {
+
+    await writer2.write("About");
+    
+    await wait(100);
+    await writer2.write("About us");
+    
+    await wait(1600);
+    await writer2.write("S.U.C.A.");
+    await writer2.write("C.U.A.S.");
+
+    await wait(700);
+    await writer2.write("Club Universale di Analisi Sofista");
   })();
 
 /*
